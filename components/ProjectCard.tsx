@@ -1,36 +1,38 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
-// This defines what information a project needs
-interface ProjectProps {
+// This tells the computer exactly what "props" to expect
+interface ProjectCardProps {
   title: string;
   description: string;
   tags: string[];
 }
 
-export const ProjectCard = ({ title, description, tags }: ProjectProps) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.02 }} // Subtly grows when hovered
-      className="group cursor-pointer rounded-2xl border border-white/10 bg-zinc-900/30 p-8 transition-all hover:bg-zinc-900/60 hover:border-blue-500/50"
-    >
-      <div className="flex flex-col gap-4">
-        <h3 className="text-2xl font-bold">{title}</h3>
-        <p className="text-gray-400 leading-relaxed">{description}</p>
+export const ProjectCard = ({ title, description, tags }: ProjectCardProps) => {
+  const ref = useRef(null);
 
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs font-medium px-3 py-1 rounded-full bg-white/5 text-gray-300"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+
+  return (
+    <div
+      ref={ref}
+      className="group relative rounded-2xl border border-white/10 bg-zinc-900/30 p-4 transition-all"
+    >
+      <div className="relative h-64 overflow-hidden rounded-xl bg-zinc-800 flex items-center justify-center">
+        <motion.span style={{ y }} className="text-6xl font-bold text-zinc-700">
+          {title[0]}
+        </motion.span>
       </div>
-    </motion.div>
+      <div className="mt-4">
+        <h3 className="text-xl font-bold text-white">{title}</h3>
+        <p className="text-gray-400 text-sm mt-1">{description}</p>
+      </div>
+    </div>
   );
 };

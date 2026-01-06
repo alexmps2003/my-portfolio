@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
+import { ContactForm } from "@/components/ContactForm";
 
 const PROJECTS = [
   {
@@ -61,6 +62,11 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+      </section>
+      {/* contact form */}
+      <section id="contact" className="py-20">
+        <h2 className="text-4xl font-bold text-center mb-10">Get In Touch</h2>
+        <ContactForm />
       </section>
     </main>
   );
