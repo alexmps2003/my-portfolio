@@ -1,3 +1,8 @@
+/* Add this at the VERY TOP */
+:root {
+  cursor: none !important;
+}
+
 @import "tailwindcss";
 
 /* This tells Tailwind v4 where your files are */
