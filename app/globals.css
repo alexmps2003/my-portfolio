@@ -15,3 +15,20 @@ body {
   color: var(--color-foreground);
   font-family: sans-serif; /* This fixes the 'Times New Roman' look */
 }
+
+/* Force hide the cursor on the root elements */
+html,
+body,
+* {
+  cursor: none !important;
+}
+
+/* Ensure all interactive elements inherit the hidden state */
+a,
+button,
+input,
+textarea,
+[role="button"],
+label {
+  cursor: none !important;
+}
