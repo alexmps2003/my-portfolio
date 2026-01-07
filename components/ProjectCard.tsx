@@ -43,7 +43,8 @@ export const ProjectCard = ({
             {title[0]}
           </motion.span>
 
-          <img
+          <motion.img
+            style={{ viewTransitionName: `project-${slug}` }}
             src={image}
             alt={title}
             className="absolute inset-0 h-full w-full object-cover opacity-100 transition-transform duration-500 group-hover:scale-110"
