@@ -7,16 +7,19 @@ const PROJECTS = [
     title: "E-commerce App",
     description: "A full-stack shop with Stripe payments.",
     tags: ["Next.js", "Stripe", "Tailwind"],
+    image: "/Ecommerce.jpg",
   },
   {
     title: "AI Dashboard",
     description: "Real-time data visualization using OpenAI.",
     tags: ["React", "Python", "Framer Motion"],
+    image: "/AIdashboard.jpg",
   },
   {
     title: "Social Media Platform",
     description: "A place for developers to share code snippets.",
     tags: ["Next.js", "PostgreSQL", "Prisma"],
+    image: "/Socialmediaplatform.jpg",
   },
 ];
 
@@ -58,6 +61,7 @@ export default function Home() {
                 title={project.title}
                 description={project.description}
                 tags={project.tags}
+                image={project.image}
               />
             </Reveal>
           ))}

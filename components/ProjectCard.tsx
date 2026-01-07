@@ -7,9 +7,15 @@ interface ProjectCardProps {
   title: string;
   description: string;
   tags: string[];
+  image: string;
 }
 
-export const ProjectCard = ({ title, description, tags }: ProjectCardProps) => {
+export const ProjectCard = ({
+  title,
+  description,
+  tags,
+  image,
+}: ProjectCardProps) => {
   const ref = useRef(null);
 
   // Creates a URL-friendly slug from the title
@@ -36,6 +42,12 @@ export const ProjectCard = ({ title, description, tags }: ProjectCardProps) => {
           >
             {title[0]}
           </motion.span>
+
+          <img
+            src={image}
+            alt={title}
+            className="absolute inset-0 h-full w-full object-cover opacity-100 transition-transform duration-500 group-hover:scale-110"
+          />
         </div>
         <div className="mt-4">
           <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
