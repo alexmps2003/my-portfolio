@@ -91,7 +91,7 @@ export const ContactForm = () => {
         </Magnetic>
         <Magnetic>
           <a
-            href="mailto:pasindushanu9@email.com"
+            href="mailto:alexsh4ndev9@email.com"
             className="text-zinc-500 hover:text-white transition-colors p-2"
           >
             Email
