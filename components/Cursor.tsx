@@ -55,6 +55,9 @@ export default function Cursor() {
         backgroundColor: isHovered
           ? "rgba(59, 130, 246, 0.5)"
           : "rgb(59, 130, 246)",
+
+        scale: isMobile ? 0.8 : 1,
+        opacity: mousePosition.x === -100 ? 0 : 1, // Hide until first touch
       }}
       transition={{ type: "spring", damping: 20, stiffness: 250, mass: 0.5 }}
     />
