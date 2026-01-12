@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Magnetic from "./Magnetic";
 
 export const ContactForm = () => {
   // --- THE BRAIN (Logic) ---
@@ -50,6 +51,35 @@ export const ContactForm = () => {
           </button>
         </form>
       )}
+
+      <div className="flex justify-center items-center gap-6 pt-4 border-t border-white/5">
+        <Magnetic>
+          <a
+            href="https://www.instagram.com/alex_sh4n___?igsh=MWQzMWs4bHZsYWdvMA%3D%3D&utm_source=qr"
+            target="_blank"
+            className="text-zinc-500 hover:text-white transition-colors p-2"
+          >
+            Instagram
+          </a>
+        </Magnetic>
+        <Magnetic>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            className="text-zinc-500 hover:text-white transition-colors p-2"
+          >
+            LinkedIn
+          </a>
+        </Magnetic>
+        <Magnetic>
+          <a
+            href="mailto:pasindushanu9@email.com"
+            className="text-zinc-500 hover:text-white transition-colors p-2"
+          >
+            Email
+          </a>
+        </Magnetic>
+      </div>
     </div>
   );
 };
