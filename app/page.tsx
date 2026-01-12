@@ -40,6 +40,9 @@ export default function Home() {
 
       <section className="flex flex-col items-center justify-center pt-32 pb-20 text-center">
         <Reveal>
+          <h2 className="text-blue-500 text-lg md:text-xl font-medium mb-4 tracking-tight">
+            Hi, I'm Pasindu Shanuka
+          </h2>
           <h1 className="text-6xl md:text-8xl font-bold tracking-tighter">
             DESIGNER & <br />
             <span className="text-blue-500">DEVELOPER</span>
