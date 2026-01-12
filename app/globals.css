@@ -57,3 +57,12 @@ textarea,
 label {
   cursor: none !important;
 }
+
+html {
+  scroll-behavior: smooth; /* This handles the animation physics */
+}
+
+/* Optional: Offset for the fixed Navbar so headers don't get hidden */
+:target {
+  scroll-margin-top: 100px;
+}

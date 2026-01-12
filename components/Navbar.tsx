@@ -13,7 +13,7 @@ export const Navbar = () => {
         </Link>
         {/* 'flex' and 'gap-8' will now work because Tailwind v4 is loaded via globals.css */}
         <div className="flex items-center gap-8 text-sm font-medium text-gray-300">
-          <Link href="/" className="hover:text-white transition-colors">
+          <Link href="#home" className="hover:text-white transition-colors">
             Home
           </Link>
           <Link href="#projects" className="hover:text-white transition-colors">

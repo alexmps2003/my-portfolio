@@ -38,7 +38,10 @@ export default function Home() {
         Available for new projects — 2026
       </div>
 
-      <section className="flex flex-col items-center justify-center pt-32 pb-20 text-center">
+      <section
+        id="home"
+        className="flex flex-col items-center justify-center pt-32 pb-20 text-center"
+      >
         <Reveal>
           <h2 className="text-blue-500 text-lg md:text-xl font-medium mb-4 tracking-tight">
             Hi, I'm Pasindu Shanuka
