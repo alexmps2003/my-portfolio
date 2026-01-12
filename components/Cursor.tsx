@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useSpring } from "framer-motion";
 
 export default function Cursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const mouseMove = (e: MouseEvent) => {
@@ -13,16 +14,37 @@ export default function Cursor() {
       });
     };
 
+    const handleHover = () => setIsHovered(true);
+    const handleUnhover = () => setIsHovered(false);
+
+    // Listen for mouse over on links and buttons
+    const targets = document.querySelectorAll("a, button, .project-card");
+    targets.forEach((target) => {
+      target.addEventListener("mouseenter", handleHover);
+      target.addEventListener("mouseleave", handleUnhover);
+    });
+
     window.addEventListener("mousemove", mouseMove);
-    return () => window.removeEventListener("mousemove", mouseMove);
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+      targets.forEach((target) => {
+        target.removeEventListener("mouseenter", handleHover);
+        target.removeEventListener("mouseleave", handleUnhover);
+      });
+    };
   }, []);
 
   return (
     <motion.div
       className="fixed top-0 left-0 w-8 h-8 bg-blue-500 rounded-full pointer-events-none z-[9999] mix-blend-difference"
       animate={{
-        x: mousePosition.x - 16,
-        y: mousePosition.y - 16,
+        x: mousePosition.x - (isHovered ? 20 : 12),
+        y: mousePosition.y - (isHovered ? 20 : 12),
+        width: isHovered ? 40 : 24,
+        height: isHovered ? 40 : 24,
+        backgroundColor: isHovered
+          ? "rgba(59, 130, 246, 0.5)"
+          : "rgb(59, 130, 246)",
       }}
       transition={{ type: "spring", damping: 20, stiffness: 250, mass: 0.5 }}
     />
