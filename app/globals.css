@@ -59,7 +59,7 @@ label {
 }
 
 html {
-  scroll-behavior: smooth; /* This handles the animation physics */
+  scroll-behavior: smooth !important; /* Force the browser to animate */
 }
 
 /* Optional: Offset for the fixed Navbar so headers don't get hidden */
