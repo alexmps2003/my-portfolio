@@ -10,14 +10,24 @@ export const ContactForm = () => {
   async function handleSubmit(formData: FormData) {
     setStatus("Sending..."); // Tell the UI to show "Sending..."
 
-    // This "captures" what the user typed in the box named "name"
+    // 1. Get the data from the form fields
     const name = formData.get("name");
+    const message = formData.get("message");
+    const email = "user@example.com"; // You can add an email input field to your UI to capture this
 
-    // We wait 2 seconds to simulate a real server response
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // 2. Call your actual API route
+    const response = await fetch("/api/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
 
-    console.log("Message received from:", name);
-    setStatus("Success"); // Tell the UI we are done!
+    // 3. Check if the server actually sent it
+    if (response.ok) {
+      setStatus("Success");
+    } else {
+      setStatus("Error"); // Optional: handle errors if the API fails
+    }
   }
 
   // --- UI ---
@@ -28,7 +38,14 @@ export const ContactForm = () => {
           Thanks! I'll get back to you soon.
         </div>
       ) : (
-        <form action={handleSubmit} className="flex flex-col gap-4">
+        <form
+          onSubmit={async (e) => {
+            e.preventDefault(); // Prevents page reload
+            const formData = new FormData(e.currentTarget);
+            await handleSubmit(formData);
+          }}
+          className="flex flex-col gap-4"
+        >
           <input
             name="name"
             placeholder="Your Name"
