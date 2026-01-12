@@ -5,6 +5,7 @@ import { motion, useSpring } from "framer-motion";
 export default function Cursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const mouseMove = (e: MouseEvent) => {
@@ -13,6 +14,15 @@ export default function Cursor() {
         y: e.clientY,
       });
     };
+
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(pointer: coarse)").matches);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    if (isMobile) return; // Don't show custom cursor on mobile
 
     const handleHover = () => setIsHovered(true);
     const handleUnhover = () => setIsHovered(false);
