@@ -7,7 +7,7 @@ export const Navbar = () => {
       <div className="mx-auto flex max-w-5xl items-center justify-between rounded-full border border-white/10 bg-zinc-900/50 px-6 py-3 backdrop-blur-md">
         <Link
           href="/"
-          className="text-xl font-bold text-blue-500 tracking-tighter hover:opacity-80 transition-opacity"
+          className="text-xl font-bold text-white tracking-tighter hover:text-blue-500 transition-colors"
         >
           ALEX_SH4N___
         </Link>
