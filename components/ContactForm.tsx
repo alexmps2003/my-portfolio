@@ -12,8 +12,8 @@ export const ContactForm = () => {
 
     // 1. Get the data from the form fields
     const name = formData.get("name");
+    const email = formData.get("email"); // Get the real email from the input
     const message = formData.get("message");
-    const email = "user@example.com"; // You can add an email input field to your UI to capture this
 
     // 2. Call your actual API route
     const response = await fetch("/api/send", {
@@ -47,8 +47,9 @@ export const ContactForm = () => {
           className="flex flex-col gap-4"
         >
           <input
-            name="name"
-            placeholder="Your Name"
+            name="email"
+            type="email"
+            placeholder="Your Email"
             required
             className="p-3 rounded-lg bg-black border border-white/10 focus:border-blue-500 outline-none"
           />
