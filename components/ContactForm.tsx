@@ -47,6 +47,13 @@ export const ContactForm = () => {
           className="flex flex-col gap-4"
         >
           <input
+            name="name"
+            type="text"
+            placeholder="Name"
+            required
+            className="p-3 rounded-lg bg-black border border-white/10 focus:border-blue-500 outline-none"
+          />
+          <input
             name="email"
             type="email"
             placeholder="Your Email"
