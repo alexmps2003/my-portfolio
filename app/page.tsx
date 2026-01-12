@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ContactForm } from "@/components/ContactForm";
+import TiltCard from "@/components/TiltCard";
 
 const PROJECTS = [
   {
@@ -82,13 +83,19 @@ export default function Home() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {FAVORITE_TECH.map((tech) => (
-              <div
-                key={tech.name}
-                className="p-6 rounded-xl border border-white/5 bg-zinc-900/30"
-              >
-                <h4 className="font-bold text-blue-400 mb-2">{tech.name}</h4>
-                <p className="text-sm text-zinc-500">{tech.reason}</p>
-              </div>
+              <TiltCard key={tech.name}>
+                <div
+                  key={tech.name}
+                  className="p-6 rounded-xl border border-white/5 bg-zinc-900/30"
+                >
+                  <div style={{ transform: "translateZ(50px)" }}>
+                    <h4 className="font-bold text-blue-400 mb-2">
+                      {tech.name}
+                    </h4>
+                    <p className="text-sm text-zinc-500">{tech.reason}</p>
+                  </div>
+                </div>
+              </TiltCard>
             ))}
           </div>
         </div>
