@@ -28,11 +28,11 @@ export default async function ProjectPage({
 
   return (
     <PageTransition>
-      <main className="min-h-screen bg-black text-white pt-32 px-6">
+      <main className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-white pt-32 px-6 transition-colors duration-500">
         <div className="max-w-4xl mx-auto">
           <a
             href="/"
-            className="text-blue-500 hover:underline mb-8 inline-block"
+            className="text-blue-600 dark:text-blue-500 hover:underline mb-8 inline-block"
           >
             ← Back to Portfolio
           </a>
@@ -42,13 +42,13 @@ export default async function ProjectPage({
             {project.title}
           </h1>
 
-          <div className="w-full h-96 bg-zinc-900 rounded-3xl border border-white/10 flex items-center justify-center mb-16 overflow-hidden">
+          <div className="w-full h-96 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-zinc-200 dark:border-white/10 flex items-center justify-center mb-16 overflow-hidden shadow-sm dark:shadow-none transition-colors duration-500">
             {/* If you want to show the project image here too: */}
             <img
               style={{ viewTransitionName: `project-${slug}` }}
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover opacity-50"
+              className="w-full h-full object-cover opacity-80 dark:opacity-50"
             />
           </div>
 
@@ -56,7 +56,7 @@ export default async function ProjectPage({
             <div className="md:col-span-2">
               <h2 className="text-2xl font-bold mb-4">About</h2>
               {/* USE THE FULL DESCRIPTION FROM YOUR DATA */}
-              <p className="text-zinc-400 text-lg leading-relaxed">
+              <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed">
                 {project.fullDescription}
               </p>
 
@@ -64,7 +64,7 @@ export default async function ProjectPage({
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 bg-zinc-900 border border-white/10 rounded-full text-sm text-zinc-300"
+                    className="px-3 py-1 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-full text-sm text-zinc-700 dark:text-zinc-300 transition-colors duration-500"
                   >
                     {t}
                   </span>
@@ -74,14 +74,14 @@ export default async function ProjectPage({
 
             <div className="space-y-6">
               <div>
-                <p className="text-zinc-500 uppercase text-xs font-bold tracking-widest">
+                <p className="text-zinc-400 dark:text-zinc-500 uppercase text-xs font-bold tracking-widest">
                   Year
                 </p>
                 {/* USE PROJECT YEAR */}
                 <p className="text-lg">{project.year}</p>
               </div>
               <div>
-                <p className="text-zinc-500 uppercase text-xs font-bold tracking-widest">
+                <p className="text-zinc-400 dark:text-zinc-500 uppercase text-xs font-bold tracking-widest">
                   Role
                 </p>
                 <p className="text-lg">Full Stack Dev</p>

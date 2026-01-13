@@ -4,12 +4,6 @@
 @source "../components";
 @source "../app";
 
-/* This sets your default theme to a Pro Dark Look */
-@theme {
-  --color-background: #000000;
-  --color-foreground: #ffffff;
-}
-
 /* Only hide the cursor on devices with a mouse */
 @media (pointer: fine) {
   html,
@@ -33,12 +27,6 @@
   * {
     cursor: auto !important;
   }
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  font-family: sans-serif; /* This fixes the 'Times New Roman' look */
 }
 
 /* Force hide the cursor on the root elements */
@@ -66,3 +54,5 @@ html {
 :target {
   scroll-margin-top: 100px;
 }
+
+@variant dark (&:where(.dark, .dark *));

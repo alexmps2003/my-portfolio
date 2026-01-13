@@ -32,28 +32,23 @@ const FAVORITE_TECH = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-black text-white px-6 py-24">
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium">
-        <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-        Available for new projects — 2026
-      </div>
-
+    <main className="flex min-h-screen flex-col items-center bg-zinc-50 dark:bg-black text-zinc-900 dark:text-white px-6 py-24 transition-colors duration-500">
       <section
         id="home"
         className="flex flex-col items-center justify-center pt-32 pb-20 text-center"
       >
         <Reveal>
-          <h2 className="text-blue-500 text-lg md:text-xl font-medium mb-4 tracking-tight">
+          <h2 className="text-blue-600 dark:text-blue-500 text-lg md:text-xl font-medium mb-4 tracking-tight">
             Hi, I'm Pasindu Shanuka
           </h2>
           <h1 className="text-6xl md:text-8xl font-bold tracking-tighter">
             DESIGNER & <br />
-            <span className="text-blue-500">DEVELOPER</span>
+            <span className="text-blue-600 dark:text-blue-500">DEVELOPER</span>
           </h1>
         </Reveal>
 
         <Reveal>
-          <p className="mt-6 text-gray-400 text-lg md:text-xl max-w-xl">
+          <p className="mt-6 text-zinc-600 dark:text-gray-400 text-lg md:text-xl max-w-xl">
             I build high-end digital experiences using Next.js, Tailwind CSS,
             and Framer Motion.
           </p>
@@ -84,7 +79,7 @@ export default function Home() {
         </div>
 
         <div className="py-20">
-          <h3 className="text-sm uppercase tracking-widest text-zinc-500 mb-8">
+          <h3 className="text-sm uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-8">
             My Go-To Tools
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -92,13 +87,15 @@ export default function Home() {
               <TiltCard key={tech.name}>
                 <div
                   key={tech.name}
-                  className="p-6 rounded-xl border border-white/5 bg-zinc-900/30"
+                  className="p-6 rounded-xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900/30 shadow-sm dark:shadow-none transition-colors duration-500"
                 >
                   <div style={{ transform: "translateZ(50px)" }}>
-                    <h4 className="font-bold text-blue-400 mb-2">
+                    <h4 className="font-bold text-blue-600 dark:text-blue-400 mb-2">
                       {tech.name}
                     </h4>
-                    <p className="text-sm text-zinc-500">{tech.reason}</p>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-500">
+                      {tech.reason}
+                    </p>
                   </div>
                 </div>
               </TiltCard>
@@ -107,7 +104,7 @@ export default function Home() {
         </div>
       </section>
       {/* contact form */}
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-20 w-full max-w-5xl">
         <h2 className="text-4xl font-bold text-center mb-10">Get In Touch</h2>
         <ContactForm />
       </section>

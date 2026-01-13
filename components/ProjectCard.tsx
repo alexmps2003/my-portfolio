@@ -33,12 +33,12 @@ export const ProjectCard = ({
     <Link href={`/projects/${slug}`} className="block">
       <div
         ref={ref}
-        className="group relative rounded-2xl border border-white/10 bg-zinc-900/30 p-4 transition-all hover:border-white/20 hover:bg-zinc-900/50 cursor-pointer"
+        className="group relative rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/30 p-4 transition-all hover:border-zinc-300 dark:hover:border-white/20 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 cursor-pointer shadow-sm dark:shadow-none"
       >
-        <div className="relative h-64 overflow-hidden rounded-xl bg-zinc-800 flex items-center justify-center">
+        <div className="relative h-64 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
           <motion.span
             style={{ y }}
-            className="text-6xl font-bold text-zinc-700"
+            className="text-6xl font-bold text-zinc-300 dark:text-zinc-700"
           >
             {title[0]}
           </motion.span>
@@ -51,15 +51,17 @@ export const ProjectCard = ({
           />
         </div>
         <div className="mt-4">
-          <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+          <h3 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
             {title}
           </h3>
-          <p className="text-gray-400 text-sm mt-1">{description}</p>
+          <p className="text-zinc-600 dark:text-gray-400 text-sm mt-1">
+            {description}
+          </p>
           <div className="flex gap-2 mt-3">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] uppercase tracking-widest text-zinc-500 border border-zinc-800 px-2 py-1 rounded"
+                className="text-[10px] uppercase tracking-widest text-zinc-500 border border-zinc-200 dark:border-zinc-800 px-2 py-1 rounded"
               >
                 {tag}
               </span>

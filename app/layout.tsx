@@ -4,6 +4,8 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
 import Cursor from "@/components/Cursor";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +29,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-black text-white">
-        <SmoothScroll>
-          <Navbar />
-          {children}
-        </SmoothScroll>
-        <Cursor />
+    <html lang="en" suppressHydrationWarning>
+      <body className="bg-white text-black dark:bg-black dark:text-white transition-colors duration-500">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {" "}
+          <ThemeToggle />
+          <SmoothScroll>
+            <Navbar />
+            {children}
+          </SmoothScroll>
+          <Cursor />
+        </ThemeProvider>
       </body>
     </html>
   );

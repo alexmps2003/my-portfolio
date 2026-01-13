@@ -32,9 +32,9 @@ export const ContactForm = () => {
 
   // --- UI ---
   return (
-    <div className="w-full max-w-md mx-auto p-6 rounded-2xl border border-white/10 bg-zinc-900/50">
+    <div className="w-full max-w-md mx-auto p-6 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/50 shadow-sm dark:shadow-none transition-colors duration-500">
       {status === "Success" ? (
-        <div className="text-center p-4 text-blue-400 font-bold">
+        <div className="text-center p-4 text-blue-600 dark:text-blue-400 font-bold">
           Thanks! I'll get back to you soon.
         </div>
       ) : (
@@ -51,21 +51,21 @@ export const ContactForm = () => {
             type="text"
             placeholder="Name"
             required
-            className="p-3 rounded-lg bg-black border border-white/10 focus:border-blue-500 outline-none"
+            className="p-3 rounded-lg bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-white/10 focus:border-blue-500 outline-none text-zinc-900 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-500 transition-colors"
           />
           <input
             name="email"
             type="email"
             placeholder="Your Email"
             required
-            className="p-3 rounded-lg bg-black border border-white/10 focus:border-blue-500 outline-none"
+            className="p-3 rounded-lg bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-white/10 focus:border-blue-500 outline-none text-zinc-900 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-500 transition-colors"
           />
           <textarea
             name="message"
             placeholder="Your Message"
             rows={4}
             required
-            className="p-3 rounded-lg bg-black border border-white/10 focus:border-blue-500 outline-none"
+            className="p-3 rounded-lg bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-white/10 focus:border-blue-500 outline-none text-zinc-900 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-500 transition-colors"
           />
           <button
             type="submit"
@@ -77,12 +77,12 @@ export const ContactForm = () => {
         </form>
       )}
 
-      <div className="flex justify-center items-center gap-6 pt-4 border-t border-white/5">
+      <div className="flex justify-center items-center gap-6 pt-4 border-t border-zinc-200 dark:border-white/5">
         <Magnetic>
           <a
             href="https://www.instagram.com/alex_sh4n___?igsh=MWQzMWs4bHZsYWdvMA%3D%3D&utm_source=qr"
             target="_blank"
-            className="text-zinc-500 hover:text-white transition-colors p-2"
+            className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors p-2"
           >
             Instagram
           </a>
@@ -91,7 +91,7 @@ export const ContactForm = () => {
           <a
             href="https://linkedin.com"
             target="_blank"
-            className="text-zinc-500 hover:text-white transition-colors p-2"
+            className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors p-2"
           >
             LinkedIn
           </a>
@@ -99,7 +99,7 @@ export const ContactForm = () => {
         <Magnetic>
           <a
             href="mailto:alexsh4ndev9@email.com"
-            className="text-zinc-500 hover:text-white transition-colors p-2"
+            className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors p-2"
           >
             Email
           </a>
